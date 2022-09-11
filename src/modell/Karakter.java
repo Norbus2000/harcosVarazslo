@@ -1,14 +1,22 @@
 package modell;
 
 import java.util.concurrent.ThreadLocalRandom;
-import javax.swing.Icon;
 
 public class Karakter {
-    public int eletero = ThreadLocalRandom.current().nextInt(5, 15);
-    public int tamadas = ThreadLocalRandom.current().nextInt(1, 5);
+    public int eletero ;
+
+    public Karakter(int eletero, int tamadas, int hely) {
+        this.eletero = eletero;
+        this.tamadas = tamadas;
+        this.hely = hely;
+    }
+    public int tamadas ;
     public int hely;
-    public String nev;
-    public Icon kep;
+
+    public Karakter() {
+        this( ThreadLocalRandom.current().nextInt(5, 15),ThreadLocalRandom.current().nextInt(1, 5),ThreadLocalRandom.current().nextInt(1, 3));
+    }
+    
     
 
     public int getEletero() {
@@ -19,16 +27,26 @@ public class Karakter {
         return tamadas;
     }
 
-    public void setHely(int hely) {
-        this.hely = hely;
+    public int getHely() {
+        return hely;
     }
 
-    public void setNev(String nev) {
-        this.nev = nev;
+    public void setHely() {
+        this.hely = ThreadLocalRandom.current().nextInt(1, 3);
     }
 
-    public void setKep(Icon kep) {
-        this.kep = kep;
+    public void setEletero(int eletero) {
+        this.eletero = eletero;
+    }
+
+    public void setTamadas(int tamadas) {
+        this.tamadas = tamadas;
+    }
+    
+    
+    @Override
+    public String toString() {
+        return "Karakter{" + "eletero=" + eletero + ", tamadas=" + tamadas + ", hely=" + hely + '}';
     }
     
     
